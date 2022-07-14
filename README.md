@@ -148,10 +148,12 @@ npm run test
    ```
 -  Response:
 
-   ````json
-   { "status": "", "product": { "id": "", "name": "", "description": "", "price": ""} }
-
-   ````
+   ```json
+   {
+      "status": "",
+      "product": { "id": "", "name": "", "description": "", "price": "" }
+   }
+   ```
 
 #### Create Product
 
@@ -203,12 +205,12 @@ npm run test
 
 -  Body:
    ```json
-   { "product_id": "", "quantity": "" }
+   {}
    ```
 -  Response:
 
    ```json
-   { "status": "", "product": { "id": "", "user_id": "", "product_id": "", "quantity": "", "status": ""} }
+   { "status": "", "product": { "id": "", "user_id": "", "status": "" } }
    ```
 
 #### Get User Orders
@@ -229,9 +231,65 @@ npm run test
       "product": {
          "id": "",
          "user_id": "",
-         "product_id": "",
-         "quantity": "",
          "status": ""
       }
+   }
+   ```
+
+### Order Products
+
+#### Create Order Product
+
+-  `/order-products/` <br>
+-  Method: POST <br>
+-  Header:
+
+   ```json
+   { "Authorization": "Bearer TOKEN" }
+   ```
+
+-  Body:
+   ```json
+   { "order_id": "", "product_id": "", "quantity": "" }
+   ```
+-  Response:
+
+   ```json
+   {
+      "status": "",
+      "product": { "id": "", "product_id": "", "order_id": "", "quantity": "" }
+   }
+   ```
+
+#### Get Order Products
+
+-  `/order-products/:order_id` <br>
+-  Method: GET <br>
+-  Header:
+
+   ```json
+   { "Authorization": "Bearer TOKEN" }
+   ```
+
+   ```
+
+   ```
+
+-  Response:
+
+   ```json
+   {
+      "status": "",
+      "product": [
+         {
+            "id": "",
+            "product_id": "",
+            "order_id": "",
+            "quantity": "",
+            "name": "",
+            "description": "",
+            "price": ""
+         }
+      ]
    }
    ```

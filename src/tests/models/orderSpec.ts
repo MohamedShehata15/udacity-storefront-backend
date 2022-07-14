@@ -2,7 +2,6 @@ import Order from "../../models/Order";
 import User from "../../models/User";
 import Product from "../../models/Product";
 import ProductTypes from "../../types/product.types";
-import OrderTypes from "../../types/order.types";
 
 describe("Order MOdel", () => {
    it("should be defined", () => {
@@ -21,7 +20,6 @@ describe("Order MOdel", () => {
 
    describe("Test Order Logic", () => {
       let userId: string;
-      let productId: string;
 
       beforeAll(async () => {
          let user = await User.signup({
@@ -40,19 +38,12 @@ describe("Order MOdel", () => {
          );
 
          userId = user.id || "";
-         productId = product.id || "";
       });
 
       it("create method should add an order", async () => {
-         const order = await Order.create(
-            {
-               product_id: productId,
-               quantity: 1,
-            } as OrderTypes,
-            userId
-         );
+         const order = await Order.create(userId);
 
-         expect(order.product_id).toEqual(productId);
+         expect(order.user_id).toEqual(userId);
       });
 
       it("getUserOrders should return all user's orders", async () => {

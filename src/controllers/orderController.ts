@@ -7,7 +7,7 @@ import { AppError } from "./../utils/appError";
 class OrderController {
    create = async (req: UserRequest, res: Response, next: NextFunction) => {
       try {
-         let order = await Order.create(req.body, req.user?.id || "");
+         let order = await Order.create(req.user?.id || "");
 
          return res.status(201).json({
             status: "success",
