@@ -81,7 +81,7 @@ npm run test
 -  Method: POST <br>
 -  Body:
    ```json
-   { "email": "", "password": "" } <br>
+   { "email": "", "password": "" }
    ```
 -  Response:
 
@@ -100,7 +100,7 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Response:
@@ -119,7 +119,7 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Response:
@@ -140,12 +140,12 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Body:
    ```json
-   { "name": "", "description": "", "price": ""} <br>
+   { "name": "", "description": "", "price": "" }
    ```
 -  Response:
 
@@ -161,7 +161,7 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Response:
@@ -179,7 +179,7 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Response:
@@ -199,12 +199,12 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Body:
    ```json
-   { "product_id": "", "quantity": ""} <br>
+   { "product_id": "", "quantity": "" }
    ```
 -  Response:
 
@@ -219,7 +219,7 @@ npm run test
 -  Header:
 
    ```json
-   { "Authorization": "Bearer TOKEN"} <br>
+   { "Authorization": "Bearer TOKEN" }
    ```
 
 -  Response:
