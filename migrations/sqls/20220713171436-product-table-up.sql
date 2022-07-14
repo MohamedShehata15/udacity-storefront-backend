@@ -6,7 +6,7 @@ CREATE TABLE products(
       name VARCHAR(50) NOT NULL,
       description VARCHAR(255),
       price DECIMAL(10,2) NOT NULL,
-      user_id INTEGER NOT NULL,
+      user_id UUID NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP

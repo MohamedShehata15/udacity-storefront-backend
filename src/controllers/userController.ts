@@ -111,7 +111,7 @@ class UserController {
       statusCode: number,
       res: Response
    ) => {
-      const token: string = this.signToken(user.user_id || "");
+      const token: string = this.signToken(user.id || "");
 
       let { password: _, ...userData } = user;
 
