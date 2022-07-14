@@ -37,7 +37,6 @@ npm run migrate:run
 
 ```bash
 npm install
-npm run watch
 ```
 
 ### Run server
@@ -69,7 +68,7 @@ npm run test
 -  Response:
    ```json
    {
-      "status": "dfsdfs",
+      "status": "",
       "token": "",
       "data": { "id": "", "first_name": "", "last_name": "", "email": "" }
    }
@@ -151,10 +150,10 @@ npm run test
 
    ````json
    { "status": "", "product": { "id": "", "name": "", "description": "", "price": ""} }
-   ```
+
    ````
 
-#### Create a Product
+#### Create Product
 
 -  `/products/:id` <br>
 -  Method: GET <br>
@@ -209,7 +208,7 @@ npm run test
 -  Response:
 
    ```json
-   { "status": "", "product": { "id": "", "user_id": "", "product_id": "", "quantity": "", "status"": ""} }
+   { "status": "", "product": { "id": "", "user_id": "", "product_id": "", "quantity": "", "status": ""} }
    ```
 
 #### Get User Orders
