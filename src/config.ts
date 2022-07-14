@@ -14,6 +14,7 @@ const {
    BCRYPT_PASSWORD,
    SALT_ROUNDS,
    JWT_SECRET,
+   JWT_EXPIRES_IN,
 } = process.env;
 
 export default {
@@ -26,4 +27,5 @@ export default {
    pepper: BCRYPT_PASSWORD,
    saltRounds: SALT_ROUNDS,
    jwtSecret: JWT_SECRET,
+   jwtExpiresIn: JWT_EXPIRES_IN,
 };
