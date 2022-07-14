@@ -7,7 +7,10 @@ const productRoutes: IRouter = Router();
 
 productRoutes.use(new AuthMiddleware().auth);
 
-productRoutes.route("/").post(productController.create);
+productRoutes
+   .route("/")
+   .post(productController.create)
+   .get(productController.getAll);
 productRoutes.route("/:id").get(productController.getOne);
 
 export default productRoutes;

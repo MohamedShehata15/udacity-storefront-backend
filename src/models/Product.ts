@@ -47,6 +47,20 @@ class Product {
    }
 
    // Get All Products
+   public static async getAll(): Promise<ProductTypes[]> {
+      try {
+         const connection = await db.connect();
+         const sql = `SELECT * FROM products`;
+
+         const result = await connection.query(sql);
+
+         connection.release();
+
+         return result.rows;
+      } catch (err) {
+         throw new Error(`Something went wrong: ${(err as Error).message}`);
+      }
+   }
 }
 
 export default Product;

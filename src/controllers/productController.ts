@@ -45,6 +45,26 @@ class ProductController {
          });
       }
    };
+
+   getAll = async (
+      req: UserRequest,
+      res: Response,
+      next: NextFunction
+   ): Promise<Response | void> => {
+      try {
+         let products = await Product.getAll();
+         if (!products) return next(new AppError("No products found", 404));
+
+         return res.status(200).json({
+            status: "success",
+            products,
+         });
+      } catch (err) {
+         return res.status(500).json({
+            message: `unable to get products: ${(err as Error).message}`,
+         });
+      }
+   };
 }
 
 export default ProductController;
