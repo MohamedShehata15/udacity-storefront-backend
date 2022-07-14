@@ -40,6 +40,23 @@ class User {
    }
 
    // Login
+   public static async login(
+      email: string,
+      password: string
+   ): Promise<UserTypes> {
+      try {
+         const connection = await db.connect();
+         const sql = `SELECT * FROM users WHERE email = $1`;
+
+         const result = await connection.query(sql, [email]);
+
+         connection.release();
+
+         return result.rows[0];
+      } catch (err) {
+         throw new Error(`Something went wrong: ${(err as Error).message}`);
+      }
+   }
 
    // Get User
 
