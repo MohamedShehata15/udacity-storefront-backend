@@ -27,6 +27,17 @@ class Order {
    }
 
    // Get User Orders
+   public static async getUserOrders(user_id: string): Promise<OrderTypes[]> {
+      try {
+         const connection = await db.connect();
+         const sql = `SELECT * FROM orders WHERE user_id = $1`;
+         const result = await connection.query(sql, [user_id]);
+         connection.release();
+         return result.rows;
+      } catch (err) {
+         throw new Error(`Something went wrong: ${(err as Error).message}`);
+      }
+   }
 }
 
 export default Order;

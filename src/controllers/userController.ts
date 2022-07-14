@@ -34,7 +34,7 @@ class UserController {
    login = async (req: Request, res: Response, next: NextFunction) => {
       try {
          let { email, password } = req.body;
-         let user = await User.login(email, password);
+         let user = await User.login(email);
 
          // Check user exits
          if (!user) return next(new AppError("Invalid credentials", 401));

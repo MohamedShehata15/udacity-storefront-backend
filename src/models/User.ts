@@ -15,6 +15,7 @@ class User {
       try {
          // Open Connection
          const connection = await db.connect();
+
          const sql = `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`;
 
          // Run Query
@@ -40,10 +41,7 @@ class User {
    }
 
    // Login
-   public static async login(
-      email: string,
-      password: string
-   ): Promise<UserTypes> {
+   public static async login(email: string): Promise<UserTypes> {
       try {
          const connection = await db.connect();
          const sql = `SELECT * FROM users WHERE email = $1`;
@@ -108,7 +106,7 @@ class User {
             }
          });
 
-         const sql = `update users set ${str} where user_id = '${id}'  RETURNING *`;
+         const sql = `update users set ${str} where id = '${id}'  RETURNING *`;
 
          const result = await connection.query(sql);
 

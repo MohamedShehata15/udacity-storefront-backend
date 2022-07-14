@@ -11,8 +11,6 @@ class Product {
          const connection = await db.connect();
          const sql = `INSERT INTO products (name, description, price, user_id) VALUES ($1, $2, $3, $4) RETURNING *`;
 
-         console.log(sql);
-
          const { name, description, price } = product;
          const result = await connection.query(sql, [
             name,

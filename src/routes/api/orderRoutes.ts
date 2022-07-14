@@ -9,6 +9,6 @@ const orderRoutes = Router();
 
 orderRoutes.use(new AuthMiddleware().auth);
 
-orderRoutes.route("/").post(orderController.create);
+orderRoutes.route("/").post(orderController.create).get(orderController.getAll);
 
 export default orderRoutes;

@@ -52,3 +52,5 @@ process.on("unhandledRejection", (err: Error) => {
 app.listen(PORT, function () {
    console.log(`starting app on: ${address}`);
 });
+
+export default app;
