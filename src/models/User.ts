@@ -119,8 +119,6 @@ class User {
          throw new Error(`Something went wrong: ${(err as Error).message}`);
       }
    }
-
-   // Delete User
 }
 
 export default User;

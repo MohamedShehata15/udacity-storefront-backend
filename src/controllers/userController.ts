@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import User from "../models/User";
 import config from "../config";
 import { AppError } from "./../utils/appError";
+import UserTypes from "./../types/user.types";
 
 class UserController {
    signup = async (
@@ -42,15 +43,7 @@ class UserController {
          if (!(await bcrypt.compare(password, user.password)))
             return next(new AppError("Invalid credentials", 401));
 
-         let { password: _, ...userData } = user;
-
-         const token = jwt.sign({ id: user.id }, config.jwtSecret || "");
-
-         return res.status(200).json({
-            status: "success",
-            data: userData,
-            token,
-         });
+         this.createSendToken(user, 200, res);
       } catch (err) {
          return res.status(500).json({
             message: `unable to login: ${(err as Error).message}`,
@@ -111,6 +104,37 @@ class UserController {
             message: `unable to update: ${(err as Error).message}`,
          });
       }
+   };
+
+   private createSendToken = (
+      user: UserTypes,
+      statusCode: number,
+      res: Response
+   ) => {
+      const token: string = this.signToken(user.user_id || "");
+
+      let { password: _, ...userData } = user;
+
+      return res.status(statusCode).json({
+         status: "success",
+         token,
+         user: userData,
+      });
+   };
+
+   private signToken = (id: string) => {
+      const dates = config.jwtExpiresIn;
+      const jwtSecret: string = config.jwtSecret ?? "";
+
+      return jwt.sign(
+         {
+            id: id,
+         },
+         jwtSecret,
+         {
+            expiresIn: dates,
+         }
+      );
    };
 }
 
