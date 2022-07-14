@@ -90,6 +90,36 @@ class User {
       }
    }
 
+   // Update User
+   public static async update(id: string, user: UserTypes): Promise<UserTypes> {
+      try {
+         const connection = await db.connect();
+         let str = "";
+         Object.entries(user).forEach(([key, value], index) => {
+            if (index === 0) {
+               str += `${key} = '${value}'`;
+            } else {
+               if (typeof value === "string") {
+                  value = value.replace("'", '"');
+                  value = `'${value}'`;
+               }
+
+               str += `, ${key} = ${value}`;
+            }
+         });
+
+         const sql = `update users set ${str} where user_id = '${id}'  RETURNING *`;
+
+         const result = await connection.query(sql);
+
+         connection.release();
+
+         return result.rows[0];
+      } catch (err) {
+         throw new Error(`Something went wrong: ${(err as Error).message}`);
+      }
+   }
+
    // Delete User
 }
 

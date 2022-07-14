@@ -93,6 +93,25 @@ class UserController {
          });
       }
    };
+
+   update = async (req: Request, res: Response, next: NextFunction) => {
+      try {
+         let user = await User.update(req.params.id, req.body);
+
+         if (!user) return next(new AppError("User not found", 404));
+
+         let { password, ...userData } = user;
+
+         return res.status(200).json({
+            status: "success",
+            data: userData,
+         });
+      } catch (err) {
+         return res.status(500).json({
+            message: `unable to update: ${(err as Error).message}`,
+         });
+      }
+   };
 }
 
 export default UserController;

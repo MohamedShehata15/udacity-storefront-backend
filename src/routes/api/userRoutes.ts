@@ -9,6 +9,9 @@ userRoutes.post("/signup", userController.signup);
 userRoutes.post("/login", userController.login);
 
 userRoutes.route("/").get(userController.getAll);
-userRoutes.route("/:id").get(userController.getOne);
+userRoutes
+   .route("/:id")
+   .get(userController.getOne)
+   .patch(userController.update);
 
 export default userRoutes;
