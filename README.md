@@ -37,7 +37,6 @@ npm run migrate:run
 
 ```bash
 npm install
-npm run watch
 ```
 
 ### Run server
@@ -69,7 +68,7 @@ npm run test
 -  Response:
    ```json
    {
-      "status": "dfsdfs",
+      "status": "",
       "token": "",
       "data": { "id": "", "first_name": "", "last_name": "", "email": "" }
    }
