@@ -57,6 +57,42 @@ class UserController {
          });
       }
    };
+
+   getOne = async (req: Request, res: Response, next: NextFunction) => {
+      try {
+         let user = await User.getOne(req.params.id);
+
+         if (!user) return next(new AppError("User not found", 404));
+
+         let { password, ...userData } = user;
+
+         return res.status(200).json({
+            status: "success",
+            data: userData,
+         });
+      } catch (err) {
+         return res.status(500).json({
+            message: `unable to get user: ${(err as Error).message}`,
+         });
+      }
+   };
+
+   getAll = async (req: Request, res: Response, next: NextFunction) => {
+      try {
+         let users = await User.getAll();
+
+         if (!users) return next(new AppError("No users found", 404));
+
+         return res.status(200).json({
+            status: "success",
+            data: users,
+         });
+      } catch (err) {
+         return res.status(500).json({
+            message: `unable to get users: ${(err as Error).message}`,
+         });
+      }
+   };
 }
 
 export default UserController;
