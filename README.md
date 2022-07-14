@@ -151,10 +151,10 @@ npm run test
 
    ````json
    { "status": "", "product": { "id": "", "name": "", "description": "", "price": ""} }
-   ```
+
    ````
 
-#### Create a Product
+#### Create Product
 
 -  `/products/:id` <br>
 -  Method: GET <br>
