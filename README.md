@@ -208,7 +208,7 @@ npm run test
 -  Response:
 
    ```json
-   { "status": "", "product": { "id": "", "user_id": "", "product_id": "", "quantity": "", "status"": ""} }
+   { "status": "", "product": { "id": "", "user_id": "", "product_id": "", "quantity": "", "status": ""} }
    ```
 
 #### Get User Orders
