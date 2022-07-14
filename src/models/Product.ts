@@ -31,6 +31,21 @@ class Product {
    }
 
    // Get Product
+   public static async getOne(id: string): Promise<ProductTypes> {
+      try {
+         const connection = await db.connect();
+         const sql = `SELECT * FROM products WHERE id = $1`;
+
+         const result = await connection.query(sql, [id]);
+
+         connection.release();
+
+         return result.rows[0];
+      } catch (err) {
+         throw new Error(`Something went wrong: ${(err as Error).message}`);
+      }
+   }
+
    // Get All Products
 }
 

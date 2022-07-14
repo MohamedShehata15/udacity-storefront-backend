@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import Product from "../models/Product";
 import ProductTypes from "../types/product.types";
 import { UserRequest } from "../types/userRequest.types";
+import { AppError } from "./../utils/appError";
 
 class ProductController {
    create = async (
@@ -20,6 +21,27 @@ class ProductController {
       } catch (err) {
          return res.status(500).json({
             message: `unable to create: ${(err as Error).message}`,
+         });
+      }
+   };
+
+   getOne = async (
+      req: UserRequest,
+      res: Response,
+      next: NextFunction
+   ): Promise<Response | void> => {
+      try {
+         let product = await Product.getOne(req.params.id);
+
+         if (!product) return next(new AppError("Product not found", 404));
+
+         return res.status(200).json({
+            status: "success",
+            product,
+         });
+      } catch (err) {
+         return res.status(500).json({
+            message: `unable to get product: ${(err as Error).message}`,
          });
       }
    };
