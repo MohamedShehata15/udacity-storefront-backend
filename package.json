@@ -9,7 +9,7 @@
       "build": "npx tsc",
       "tsc": "tsc",
       "migrate:run": "db-migrate up",
-      "jasmine": "set  ENV=test && db-migrate --env test up && jasmine && db-migrate --env test down -c 3",
+      "jasmine": "set  ENV=test && db-migrate --env test up && jasmine && db-migrate --env test down -c 4",
       "test": "npm run build && npm run jasmine"
    },
    "author": "Udacity",
