@@ -155,15 +155,10 @@ npm run test
    }
    ```
 
-#### Create Product
+#### Get Product
 
 -  `/products/:id` <br>
 -  Method: GET <br>
--  Header:
-
-   ```json
-   { "Authorization": "Bearer TOKEN" }
-   ```
 
 -  Response:
    ```json
@@ -173,15 +168,10 @@ npm run test
    }
    ```
 
-#### Create All Products
+#### Get All Products
 
 -  `/products/` <br>
 -  Method: GET <br>
--  Header:
-
-   ```json
-   { "Authorization": "Bearer TOKEN" }
-   ```
 
 -  Response:
    ```json
