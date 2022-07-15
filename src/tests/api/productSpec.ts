@@ -40,17 +40,13 @@ describe("Product API Endpoints", () => {
    });
 
    it("should be able to get a product", async () => {
-      const response = await request.get(`/products/${productId}`).set({
-         Authorization: `Bearer ${token}`,
-      });
+      const response = await request.get(`/products/${productId}`);
 
       expect(response.status).toBe(200);
    });
 
    it("should be able to get all products", async () => {
-      const response = await request.get("/products").set({
-         Authorization: `Bearer ${token}`,
-      });
+      const response = await request.get("/products");
 
       expect(response.status).toBe(200);
    });
