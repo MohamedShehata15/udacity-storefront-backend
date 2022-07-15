@@ -5,11 +5,9 @@ import AuthMiddleware from "./../../middleware/AuthMiddleware";
 const productController = new ProductController();
 const productRoutes: IRouter = Router();
 
-productRoutes.use(new AuthMiddleware().auth);
-
 productRoutes
    .route("/")
-   .post(productController.create)
+   .post(new AuthMiddleware().auth, productController.create)
    .get(productController.getAll);
 productRoutes.route("/:id").get(productController.getOne);
 
